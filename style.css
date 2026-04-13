@@ -241,7 +241,7 @@ font-size: 25px;
       left: 0;
       top: 0;
       width: 50%;
-      background-color: rgb(141, 95, 39);
+      background-color: #ececec;
       box-shadow: 0px 10px 30px rgba(0,0,0,0.4);
       border: 1px solid black;
       padding: 35px 20px;
@@ -307,20 +307,11 @@ z-index: 1;
 
      }
      .croissantsCard{
-<<<<<<< HEAD
-        width: fit-content;
-        height: fit-content;
-        flex-wrap: wrap;
-     }
-     .imgCroissants{
-        width: 100%;
-=======
         width: 220px;
         height: 480px;
      }
      .imgCroissants{
         width: 217px;
->>>>>>> 4f481b825e26c4e633b148a1bcf92012d2995a6d
      }
      .footer{
 flex-direction: column;
