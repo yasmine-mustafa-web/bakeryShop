@@ -307,12 +307,20 @@ z-index: 1;
 
      }
      .croissantsCard{
+<<<<<<< HEAD
         width: fit-content;
         height: fit-content;
         flex-wrap: wrap;
      }
      .imgCroissants{
         width: 100%;
+=======
+        width: 220px;
+        height: 480px;
+     }
+     .imgCroissants{
+        width: 217px;
+>>>>>>> 4f481b825e26c4e633b148a1bcf92012d2995a6d
      }
      .footer{
 flex-direction: column;
