@@ -15,71 +15,49 @@
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Marmelad&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poiret+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <title>Bakery Shop</title>
+    <title>Document</title>
 </head>
 <body>
-    <header>
-        <button id="toggleBtn" onclick="openToggle()">&#9776;</button>
-        <div class="NAV">
-        <p>🥐</p>
-        <ul class="navbar">
-           <a href="#croissants"> <li>Croissants </li></a> <div class="hzLine"></div>
-           <span>|</span>
-            <a href="#desserts"><li>Deserts</li></a>   <div class="hzLine"></div>          <span>|</span>
-          
- <a href="#coffee"> <li>Coffee</li></a>   <div class="hzLine"></div>         <span>|</span>
-
-            <a href="#artisan"><li>Artisan Bread</li></a> <div class="hzLine"></div>
- 
-        </ul>
-   </div>
-    <section>
-        <div class="heroleft">
-       <h1>Bakery Shop</h1>
-<p>The best Bakries , Deserts and Coffee made with love</p>
-<a href="#croissants"> <button class="herobtn">Explore</button></a>
-        </div>
-        <div class="heroright">
-
-<img src="./assets/6864148-removebg-preview.png">
-        </div>
-    </section>
-     </header>
-     <article id="croissants">
-        <div id="menuContainer">
-
-</div>
-<div class="pricecontainer">
+    <div class="pricecontainer">
 
     </div>
-     </article>
-<div class="footer">
-    <div>
-          <h2>Bakery Shop</h2>
-<p>The best Bakries , Deserts and Coffee made with love</p>
-    </div>
-    <div>
-        
-    <h3>Quick Links</h3>
-        <ul class="navbarF">
-           <a href="#croissants"> <li>Croissants </li></a>
-            <a href="#desserts"><li>Deserts</li></a>            
- <a href="#coffee"> <li>Coffee</li></a> 
-            <a href="#artisan"><li>Artisan Bread</li></a>
- 
-        </ul>
-        </div>
-        <div>
-            <h3>For More Connection</h3>
-<i class="bi bi-facebook"></i>
-<i class="bi bi-instagram"></i>
+    </body>
 
-        </div>
-        </div>
-        <footer>
-            <p>Made by <b>Yasmine Aly</b> by love.</p>
-</footer>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const savedItem = localStorage.getItem("selectedItem");
+        if (savedItem) {
+            const item = JSON.parse(savedItem);
+            const pricecontainer=document.querySelector(".pricecontainer");
+            const lateral=document.createElement("div");
+            lateral.classList.add("lateral");
+            lateral.innerHTML=`
+    <h3>Shipping Information</h3>
+<p>Shipping tooks from 2 -3 hrs as thay are fresh</p>
+<p>Shipping adds 10LE to the item</p>
+<p>No exchanges available</p>
+<div class="hzLine2"></div>
+<p>Enjoy Your Meal</p>
+<A  href="./index.html"><button>Back To Shop</button>
+</a>
+            `
+            pricecontainer.innerHTML=`
+            <img class="imgCroissants2" src="${item.photo}">
+            <div class="priceDiv">
+                       <h2 class="nameItem2">${item.name}</h2>
+             <p  class="descr2">${item.descr}</p>
+             <button>Buy</button>
+                    <button>Add to cart</button></div>
+     
+            `
+               pricecontainer.scrollIntoView({ behavior: 'smooth' });
+               pricecontainer.appendChild(lateral);
+
+               lateral.style.order=3;
+        }else {
+            console.error("No item found in localStorage");
+        }
+    </script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <script src="./app.js"></script>
-</body>
-</html>
+    </html>
