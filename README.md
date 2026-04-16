@@ -2,7 +2,7 @@
 
 It is an organised static bakery shop.
 
-# feautres:
+# features:
 
 Allows you to see the price and the image of the product.
 
