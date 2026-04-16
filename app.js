@@ -39,12 +39,12 @@ async function loadMenu() {
 
        </div>`;
 
-       const btnPrics=card.querySelector(".imgCroissants");
-btnPrics.addEventListener("click", () =>{
-    showDetails(item);
-}
+                const btnPrics = card.querySelector(".imgCroissants");
+                btnPrics.addEventListener("click", () => {
+                    showDetails(item);
+                }
 
-)
+                )
                 container.appendChild(card);
             });
         }
@@ -60,20 +60,20 @@ btnPrics.addEventListener("click", () =>{
 }
 
 
-function showDetails(item){
+function showDetails(item) {
     localStorage.setItem("selectedItem", JSON.stringify(item));
     window.location.href = "shipping.html";
 
 }
 loadMenu();
 
-  let qnty = 1;
-    const savedItem = localStorage.getItem("selectedItem");
-    if (savedItem) {
-      const item = JSON.parse(savedItem);
-      const pricecontainer = document.querySelector(".pricecontainer");
+let qnty = 1;
+const savedItem = localStorage.getItem("selectedItem");
+if (savedItem) {
+    const item = JSON.parse(savedItem);
+    const pricecontainer = document.querySelector(".pricecontainer");
 
-      pricecontainer.innerHTML = `
+    pricecontainer.innerHTML = `
             <section class="seperate">
                            <div>
                             <img class="imgCroissants2" src="${item.photo}">
@@ -98,51 +98,51 @@ loadMenu();
          
      
             `;
-            const qtyBtn=document.querySelector(".qty");
-                                    let cartCount=0;
+    const qtyBtn = document.querySelector(".qty");
+    let cartCount = 0;
 
-            qtyBtn.addEventListener("click", ()=>{
-qnty++;
-qtyBtn.textContent=qnty;
+    qtyBtn.addEventListener("click", () => {
+        qnty++;
+        qtyBtn.textContent = qnty;
 
-            })
-            const cartBtn=document.querySelector(".cart");
+    })
+    const cartBtn = document.querySelector(".cart");
 
-cartBtn.addEventListener("click",()=>{
-  let addCart=document.querySelector(".countBtn");
-  cartCount++;
-  const bill= calcTotal(qnty);
-  
-  if(!addCart){
-   addCart=document.createElement("button")
-  addCart.className="countBtn";
-  addCart.style.borderRadius="30px";
-  addCart.style.padding="10px";
-addCart.style.float="right";
-addCart.style.margin="20px";
-addCart.style.border="none";
-addCart.style.backgroundColor="red";
-addCart.style.color="white";
-  document.body.appendChild(addCart);
-  }
-  addCart.textContent= cartCount + "🛒";
-document.querySelector(".subtotal").textContent=`$${bill.ttl}`;
-document.querySelector(".taxs").textContent=`$${bill.tax}`;
-document.querySelector(".totalbill").textContent=`$${bill.total}`;
+    cartBtn.addEventListener("click", () => {
+        let addCart = document.querySelector(".countBtn");
+        cartCount++;
+        const bill = calcTotal(qnty);
 
-})
-      pricecontainer.scrollIntoView({ behavior: "smooth" });
+        if (!addCart) {
+            addCart = document.createElement("button")
+            addCart.className = "countBtn";
+            addCart.style.borderRadius = "30px";
+            addCart.style.padding = "10px";
+            addCart.style.float = "right";
+            addCart.style.margin = "20px";
+            addCart.style.border = "none";
+            addCart.style.backgroundColor = "red";
+            addCart.style.color = "white";
+            document.body.appendChild(addCart);
+        }
+        addCart.textContent = cartCount + "🛒";
+        document.querySelector(".subtotal").textContent = `$${bill.ttl}`;
+        document.querySelector(".taxs").textContent = `$${bill.tax}`;
+        document.querySelector(".totalbill").textContent = `$${bill.total}`;
 
-    } else {
-      console.error("No item found in localStorage");
-    }
-            let item;
+    })
+    pricecontainer.scrollIntoView({ behavior: "smooth" });
 
-function calcTotal(qnty){
-    const ttl=item.price*qnty;
+} else {
+    console.error("No item found in localStorage");
+}
+let item;
+
+function calcTotal(qnty) {
+    const ttl = item.price * qnty;
     const taxRate = 0.14;
-    const tax=ttl*item.taxRate;
-    const total=ttl + tax;
+    const tax = ttl * item.taxRate;
+    const total = ttl + tax;
     return {
         ttl: ttl.toFixed(2),
         tax: tax.toFixed(2),
@@ -150,11 +150,11 @@ function calcTotal(qnty){
     };
 }
 
-const cta=document.querySelector(".cta");
-cta.addEventListener("click",()=>{
-const bill=calcTotal(qnty||1);
-localStorage.setItem("userBill", JSON.stringify(bill));
+const cta = document.querySelector(".cta");
+cta.addEventListener("click", () => {
+    const bill = calcTotal(qnty || 1);
+    localStorage.setItem("userBill", JSON.stringify(bill));
 
-window.location.href="checkout.html";
+    window.location.href = "checkout.html";
 });
 
